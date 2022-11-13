@@ -6,7 +6,7 @@ A collection of scripts that make developing Minecraft mods less painful. In gen
 
 - https://moddingtutorials.org/publish.gradle
 
-A gradle task to automatically publish minecraft mods to CurseForge and Github Releases based on a json config file. [Learn More](https://moddingtutorials.org/publish)
+A gradle task to automatically publish minecraft mods to CurseForge and Github Releases based on a json config file. [Learn More](https://moddingtutorials.org/publishing)
 
 ## NotEnoughGraphs
 

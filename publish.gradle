@@ -306,30 +306,6 @@ class JustEnoughPublishing {
             client
         }
     }
-
-    boolean maven(){
-        if (this.parentProject.hasProperty("my_maven_location")){
-            publishing {
-                publications {
-                    mavenJava(MavenPublication) {
-                        groupId project.group
-                        artifactId project.archivesBaseName
-                        version this.parentProject.version
-                        from components.java
-                    }
-                }
-
-                repositories {
-                    maven {
-                        url "file://" + rootProject.my_maven_location
-                    }
-                }
-            }
-            return true;
-        }
-
-        return false;
-    }
 }
 
 class JustEnoughPublishingPlugin implements Plugin<Project> {
@@ -348,10 +324,6 @@ class JustEnoughPublishingPlugin implements Plugin<Project> {
                 finalizedBy(project.tasks.githubRelease)
                 targets.add("github")
             }
-            if (publisher.maven()) {
-                finalizedBy(project.tasks.publish)
-                targets.add("maven")
-            };
 
             publisher.log("active targets: " + String.join(", ", targets))
         }
